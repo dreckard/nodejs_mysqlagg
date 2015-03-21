@@ -85,11 +85,14 @@ var pool = mysql.createPool({
 
 var server = app.listen(3000, function () { console.log('Server listening on port %s...', server.address().port); });
 
+app.get('/', function (req,res) {
+        res.end('Server status: ok');
+    });
 app.get('/api/stats', function (req,res) {
         pool.getConnection(function(err,connection){
             if (err) {
-              connection.release();
-              res.statusCode = 100;
+              if ( connection )
+                connection.release();
               res.end('Error: Database connection failed');
               return;
             }
@@ -103,5 +106,3 @@ app.get('/api/stats', function (req,res) {
             })
         });
     });
-
-console.log('Server running...');
