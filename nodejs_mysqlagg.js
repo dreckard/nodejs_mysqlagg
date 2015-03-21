@@ -95,7 +95,7 @@ app.get('/api/stats', function (req,res) {
             }
             var pars = url.parse(req.url,true);
             
-            //Putting in the ID list as a raw comma separated string gets the commas escaped
+            //The ID list needs to go in as a javascript array or the commas will be escaped and break the query
             connection.query(statsQry, [pars.query.ad_ids.split(','),pars.query.start_time,pars.query.end_time], function(err,rows) { 
                 connection.release();
                 if ( err ) { console.log('SQL Error: ' + err.message); return; }
