@@ -93,7 +93,7 @@ app.get('/api/stats', function (req,res) {
             if (err) {
               if ( connection )
                 connection.release();
-              res.end('Error: Database connection failed');
+              res.end('Error: Database connection failed; ' + err.message);
               return;
             }
             var pars = url.parse(req.url,true);
