@@ -83,7 +83,7 @@ var pool = mysql.createPool({
     debug    :  false
 });
 
-var server = app.listen(3000);
+var server = app.listen(3000, function () { console.log('Server listening on port %s...', server.address().port); });
 
 app.get('/api/stats', function (req,res) {
         pool.getConnection(function(err,connection){
