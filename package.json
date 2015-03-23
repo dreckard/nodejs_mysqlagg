@@ -1,7 +1,7 @@
 {
-  "name": "challenge2",
+  "name": "nodejs_mysqlagg",
   "version": "1.0.0",
-  "main": "smartly_challenge2.js",
+  "main": "nodejs_mysqlagg.js",
   "private": true,
   "dependencies": {
     "express": "^4.12.3",
